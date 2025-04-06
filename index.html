@@ -1,31 +1,347 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ram Navami Wishes</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>राम नवमी की शुभकामनाएँ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffcc99, #ff9966);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            color: #ff6600;
+            margin-bottom: 15px;
+            font-size: 2.5em; /* बड़ा हेडिंग */
+        }
+
+        .ram-image {
+            max-width: 200px; /* छवि का आकार */
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        p {
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .input-section, .greeting-section {
+            margin-top: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box; /* सही चौड़ाई के लिए */
+        }
+
+        button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #e65c00;
+        }
+
+        .share-section {
+            margin-top: 30px;
+            border-top: 1px dashed #ccc;
+            padding-top: 20px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        .share-section p {
+            font-size: 1em;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .share-buttons a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: transform 0.2s ease;
+        }
+
+        .share-buttons a:hover {
+           transform: scale(1.1);
+        }
+
+        .whatsapp {
+            background-color: #25D366;
+        }
+
+        .telegram {
+            background-color: #0088cc;
+        }
+
+        .share-buttons a i {
+            margin-right: 8px;
+        }
+
+        #generatedLinkContainer {
+            margin-top: 20px;
+            display: flex; /* Flexbox for alignment */
+            align-items: center; /* Vertically align items */
+            justify-content: center; /* Horizontally center items */
+            gap: 10px; /* Space between input and button */
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+
+        #generatedLink {
+            flex-grow: 1; /* Input takes available space */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 0.9em;
+            background-color: #f9f9f9;
+            max-width: calc(100% - 100px); /* Adjust based on button width */
+        }
+
+        #copyButton {
+            padding: 10px 15px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+         #copyButton:hover {
+            background-color: #333;
+         }
+
+         #copyMessage {
+            font-size: 0.8em;
+            color: green;
+            margin-top: 5px;
+            display: block; /* Ensure it takes its own line */
+            width: 100%; /* Full width */
+            height: 15px; /* Reserve space */
+         }
+
+         /* भेजने वाले के नाम को हाईलाइट करने के लिए स्टाइल */
+        .sender-name {
+            font-weight: bold; /* मोटा अक्षर */
+            font-size: 1.4em;  /* पैराग्राफ टेक्स्ट (1.1em) से काफी बड़ा */
+            color: #d9534f;   /* ध्यान खींचने वाला रंग (लाल जैसा) */
+             padding: 2px 5px; /* थोड़ी पैडिंग */
+             border-radius: 4px; /* गोल कोने */
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .ram-image {
+                max-width: 150px;
+            }
+            .share-buttons a {
+                font-size: 1em;
+                padding: 8px 12px;
+                margin: 5px;
+            }
+            #generatedLinkContainer {
+               flex-direction: column; /* Stack vertically on small screens */
+            }
+             #generatedLink {
+               max-width: 100%; /* Full width on small screens */
+               margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <img src="ram-navami.jpg" alt="Ram Navami" class="hero-img" />
-    <h1>🙏 राम नवमी की शुभकामनाएं 🙏</h1>
-    <h2 id="fromText"></h2>
 
-    <div class="input-box">
-      <input type="text" id="nameInput" placeholder="अपना नाम लिखें..." />
-      <button onclick="generateLink()">लिंक बनाएं और शेयर करें</button>
+    <div class="container">
+        <!-- यह सेक्शन तब दिखेगा जब URL में नाम होगा -->
+        <div id="greetingSection" class="greeting-section" style="display: none;">
+             <!-- ***** बदलाव यहाँ: src="ram.jpg" ***** -->
+             <img src="ram.jpg" alt="श्री राम" class="ram-image">
+             <h1 id="personalizedGreeting">राम नवमी की शुभकामनाएँ!</h1>
+             <p id="senderMessage" style="font-weight: bold;"></p>
+             <p>प्रभु श्री राम आपके जीवन में सुख, शांति और समृद्धि लाएं।</p>
+             <p style="margin-top: 20px; font-size: 0.9em;">आप भी नीचे अपना नाम लिखकर शुभकामनाएं भेज सकते हैं:</p>
+             <button onclick="window.location.href = window.location.pathname;">यहाँ क्लिक करें</button>
+        </div>
+
+        <!-- यह सेक्शन तब दिखेगा जब URL में नाम नहीं होगा (डिफ़ॉल्ट) -->
+        <div id="inputSection" class="input-section">
+            <h1>राम नवमी की शुभकामनाएँ</h1>
+             <!-- ***** बदलाव यहाँ: src="ram.jpg" ***** -->
+            <img src="ram.jpg" alt="श्री राम" class="ram-image">
+            <p>इस पावन पर्व पर, प्रभु श्री राम का आशीर्वाद आप पर सदा बना रहे।</p>
+            <p>नीचे अपना नाम लिखें और अपनी व्यक्तिगत शुभकामनाएँ भेजें:</p>
+
+            <label for="userName">अपना नाम यहाँ लिखें:</label>
+            <input type="text" id="userName" placeholder="उदाहरण: अजय कुमार">
+            <button id="generateBtn">शुभकामना लिंक बनाएँ</button>
+
+            <div id="shareSection" class="share-section" style="display: none;">
+                <p>आपका व्यक्तिगत शुभकामना लिंक तैयार है! इसे कॉपी करें या नीचे दिए गए बटन से शेयर करें:</p>
+                <div id="generatedLinkContainer">
+                     <input type="text" id="generatedLink" readonly>
+                     <button id="copyButton"><i class="fas fa-copy"></i> कॉपी</button>
+                </div>
+                 <span id="copyMessage">&nbsp;</span> <!-- Placeholder for copy message -->
+
+                <div class="share-buttons">
+                    <a id="whatsappShare" href="#" target="_blank" class="whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a id="telegramShare" href="#" target="_blank" class="telegram">
+                        <i class="fab fa-telegram-plane"></i> Telegram
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div id="linkBox" style="display:none;">
-      <p>आपका लिंक:</p>
-      <input type="text" id="generatedLink" readonly />
-      <a id="whatsappShare" target="_blank">
-        <img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png" class="wa-icon" alt="Share on WhatsApp"/>
-      </a>
-    </div>
-  </div>
+    <script>
+        // पेज लोड होने पर URL पैरामीटर चेक करें
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nameFromUrl = urlParams.get('name'); // URL से 'name' पैरामीटर लें
 
-  <script src="script.js"></script>
+            const greetingSection = document.getElementById('greetingSection');
+            const inputSection = document.getElementById('inputSection');
+            const personalizedGreeting = document.getElementById('personalizedGreeting');
+            const senderMessage = document.getElementById('senderMessage'); // <p> टैग जिसमें संदेश दिखाना है
+
+            if (nameFromUrl) {
+                // अगर URL में नाम है, तो ग्रीटिंग सेक्शन दिखाएं और इनपुट सेक्शन छिपाएं
+                const decodedName = decodeURIComponent(nameFromUrl.replace(/\+/g, ' ')); // नाम को डीकोड करें
+                personalizedGreeting.textContent = `!! जय श्री राम !!`;
+                senderMessage.innerHTML = `आपको <span class="sender-name">${decodedName}</span> की ओर से राम नवमी की हार्दिक शुभकामनाएँ!`;
+                greetingSection.style.display = 'block';
+                inputSection.style.display = 'none';
+            } else {
+                // अगर URL में नाम नहीं है, तो इनपुट सेक्शन दिखाएं और ग्रीटिंग सेक्शन छिपाएं
+                greetingSection.style.display = 'none';
+                inputSection.style.display = 'block';
+            }
+        };
+
+        // बटन क्लिक पर लिंक जेनरेट करें
+        const generateBtn = document.getElementById('generateBtn');
+        const userNameInput = document.getElementById('userName');
+        const shareSection = document.getElementById('shareSection');
+        const generatedLinkInput = document.getElementById('generatedLink');
+        const whatsappShareLink = document.getElementById('whatsappShare');
+        const telegramShareLink = document.getElementById('telegramShare');
+        const copyButton = document.getElementById('copyButton');
+        const copyMessage = document.getElementById('copyMessage');
+
+
+        generateBtn.addEventListener('click', function() {
+            const userName = userNameInput.value.trim();
+
+            if (userName === "") {
+                alert("कृपया अपना नाम दर्ज करें!");
+                return;
+            }
+            const baseUrl = window.location.origin + window.location.pathname;
+            const encodedName = encodeURIComponent(userName);
+            const personalizedUrl = `${baseUrl}?name=${encodedName}`;
+            generatedLinkInput.value = personalizedUrl;
+            const shareText = `*${userName}* की ओर से आपको राम नवमी की हार्दिक शुभकामनाएँ! 🙏 नीचे दिए गए लिंक पर क्लिक करें:`;
+            const encodedShareText = encodeURIComponent(shareText);
+            const encodedUrl = encodeURIComponent(personalizedUrl);
+            whatsappShareLink.href = `https://wa.me/?text=${encodedShareText}%0A${encodedUrl}`;
+            telegramShareLink.href = `https://t.me/share/url?url=${encodedUrl}&text=${encodedShareText}`;
+            shareSection.style.display = 'block';
+            copyMessage.textContent = '\u00A0';
+        });
+
+        // कॉपी बटन का लॉजिक
+        copyButton.addEventListener('click', function() {
+            generatedLinkInput.select();
+             generatedLinkInput.setSelectionRange(0, 99999);
+             try {
+                navigator.clipboard.writeText(generatedLinkInput.value).then(() => {
+                    copyMessage.textContent = "लिंक कॉपी हो गया!";
+                    setTimeout(() => { copyMessage.textContent = '\u00A0'; }, 2000);
+                }).catch(err => {
+                    console.error('Clipboard API failed: ', err);
+                    if(document.execCommand('copy')) {
+                         copyMessage.textContent = "लिंक कॉपी हो गया! (Fallback)";
+                         setTimeout(() => { copyMessage.textContent = '\u00A0'; }, 2000);
+                    } else {
+                         copyMessage.textContent = "कॉपी करने में विफल!";
+                         setTimeout(() => { copyMessage.textContent = '\u00A0'; }, 2000);
+                    }
+                });
+             } catch (err) {
+                 console.error('Clipboard access error: ', err);
+                 copyMessage.textContent = "कॉपी करने में विफल!";
+                 setTimeout(() => { copyMessage.textContent = '\u00A0'; }, 2000);
+             }
+        });
+
+    </script>
+
 </body>
 </html>

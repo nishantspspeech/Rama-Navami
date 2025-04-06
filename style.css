@@ -1,0 +1,60 @@
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff8e1;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+.hero-img {
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+h1 {
+  color: #b30000;
+}
+
+#fromText {
+  font-size: 20px;
+  color: #444;
+}
+
+.input-box {
+  margin-top: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #ffb300;
+  width: 80%;
+  max-width: 300px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f57c00;
+}
+
+.wa-icon {
+  width: 50px;
+  margin-top: 10px;
+  cursor: pointer;
+}

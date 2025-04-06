@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ram Navami Wishes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="assets/ram-navami.jpg" alt="Ram Navami" class="hero-img" />
+    <h1>🙏 राम नवमी की शुभकामनाएं 🙏</h1>
+    <h2 id="fromText"></h2>
+
+    <div class="input-box">
+      <input type="text" id="nameInput" placeholder="अपना नाम लिखें..." />
+      <button onclick="generateLink()">लिंक बनाएं और शेयर करें</button>
+    </div>
+
+    <div id="linkBox" style="display:none;">
+      <p>आपका लिंक:</p>
+      <input type="text" id="generatedLink" readonly />
+      <a id="whatsappShare" target="_blank">
+        <img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png" class="wa-icon" alt="Share on WhatsApp"/>
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
